@@ -113,53 +113,53 @@ class ChessBoard {
     
     } 
 
-    // numberOfKnightMovesDepthFirst([xStart, yStart], [xEnd, yEnd], visited = new Set(), n = 8, parent = {}){
-    //     let start = arguments[0];
-    //     let end = arguments[1];
+    numberOfKnightMovesDepthFirst([xStart, yStart], [xEnd, yEnd], visited = new Set(), n = 8, parent = {}){
+        let start = arguments[0];
+        let end = arguments[1];
 
 
-    //     if(start ===end){
-    //         let path = [end];
-    //         let predecessor = parent[end]
-    //         while(predecessor!==null){
-    //             path.unshift(predecessor)
-    //             predecessor = parent[predecessor]
+        if(start ===end){
+            let path = [end];
+            let predecessor = parent[end]
+            while(predecessor!==null){
+                path.unshift(predecessor)
+                predecessor = parent[predecessor]
                     
-    //         }
-    //         return{moves:0,
-    //         path:path}
+            }
+            return{moves:0,
+            path:path}
 
-    //         }
+            }
       
 
-    //     visited.add(start);
+        visited.add(start);
 
-    //     let moves = this.adjList
+        let moves = this.adjList
 
-    //     console.log(moves)
+        console.log(moves)
 
-    //     let minMoves = -1;
-    //     let minPath = [];
+        let minMoves = -1;
+        let minPath = [];
 
-        // for(let move of moves){
-        //     if(!visited.has(move)){
-        //         parent[move] = start
-        //         let result = this.numberOfKnightMovesDepthFirst(move, end, visited, parent)
+        for(let move of moves){
+            if(!visited.has(move)){
+                parent[move] = start
+                let result = this.numberOfKnightMovesDepthFirst(move, end, visited, parent)
 
-        //         if(result.moves !==1){
-        //             if(minMoves ===-1 || result.moves+1<minMoves){
-        //                 minMoves = result.moves +1;
-        //                 minPath = result.path;
-        //             } 
-        //         }
-        //     }
-        // }
-        // return {
-        //     moves: minMoves,
-        //     path: minPath
-        // }
+                if(result.moves !==1){
+                    if(minMoves ===-1 || result.moves+1<minMoves){
+                        minMoves = result.moves +1;
+                        minPath = result.path;
+                    } 
+                }
+            }
+        }
+        return {
+            moves: minMoves,
+            path: minPath
+        }
      
-    // }
+    }
 
 }
 
